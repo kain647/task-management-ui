@@ -25,6 +25,8 @@ export const HeaderContainer = styled.div`
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;
+    position: sticky;
+    top: 0;
   }
 `;
 export const UserContainer = styled.div`
@@ -143,6 +145,9 @@ export const TaskContainer = styled.div`
   box-sizing: border-box;
   overflow-y: auto;
   background-color: #f7fafc;
+  @media screen and (max-width: 768px) {
+    overflow-y: auto;
+  }
 `;
 export const TasksContainer = styled.div`
   display: flex;
