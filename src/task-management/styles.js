@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Box = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -7,6 +11,10 @@ export const Container = styled.div`
   height: 750px;
   background-color: #fff;
   box-sizing: border-box;
+	margin-bottom: 20px;
+	:last-child{
+		margin-bottom: 0;
+	}
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;
@@ -56,9 +64,6 @@ export const IconBox = styled.div`
     border-radius: 5px;
     cursor: pointer;
   }
-  .off {
-    display: none;
-  }
 `;
 export const UserName = styled.div`
   display: flex;
@@ -95,6 +100,7 @@ export const ButtonBox = styled.div`
 `;
 export const NewContact = styled.button`
   display: flex;
+  align-items: center;
   box-sizing: border-box;
   color: #fff;
   background-color: #a0aec0;
@@ -106,6 +112,7 @@ export const NewContact = styled.button`
 `;
 export const NewTask = styled.button`
   display: flex;
+  align-items: center;
   box-sizing: border-box;
   color: #718096;
   border: 1px solid #cbd5e0;
@@ -125,13 +132,19 @@ export const InputContainer = styled.div`
   svg {
     position: absolute;
     color: #718096;
-    right: 5px;
-    padding-left: 5px;
+    padding: 5px;
+    &.Close {
+      position: absolute;
+      color: #718096;
+      right: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
   }
   input {
     color: #718096;
     border: 1px solid #cbd5e0;
-    padding: 10px 30px 10px 10px;
+    padding: 10px 30px 10px 25px;
     border-radius: 5px;
     @media screen and (max-width: 768px) {
       display: flex;
@@ -139,30 +152,33 @@ export const InputContainer = styled.div`
     }
   }
 `;
-export const TaskContainer = styled.div`
+export const ContactContainer = styled.div`
   display: flex;
+	width: 100%;
   flex-direction: column;
   box-sizing: border-box;
   overflow-y: auto;
+  overflow-x: auto;
   background-color: #f7fafc;
   @media screen and (max-width: 768px) {
     overflow-y: auto;
   }
 `;
-export const TasksContainer = styled.div`
+export const Contacts = styled.div`
   display: flex;
   box-sizing: border-box;
   padding: 20px 30px;
   background-color: #f7fafc;
   border-bottom: 1px solid #e2e8f0;
   cursor: pointer;
-
   :hover {
     background-color: #d9d9d9;
-
     .Work {
       color: #2d3748;
     }
+	  .IconDel {
+		  display: flex;
+	  }
   }
 `;
 export const Photo = styled.div`
@@ -191,7 +207,7 @@ export const DetailUser = styled.div`
   flex-direction: column;
 `;
 export const ButtonEdit = styled.button`
-  display: flex;
+  display: none;
   margin-left: auto;
   align-items: center;
   border: none;
@@ -202,8 +218,42 @@ export const ButtonEdit = styled.button`
   font-size: 0.875rem;
   svg {
     margin-right: 10px;
-    --size: 16px;
+    --size: 24px;
     width: var(--size);
     height: var(--size);
   }
+`;
+export const Tasks = styled.div`
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  background-color: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+	:hover {
+    background-color: #d9d9d9;
+		.IconDel {
+			display: flex;
+		}
+	}
+`;
+export const TaskDetail = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+export const TaskTitle = styled.div`
+	display: flex;
+	width: 500px;
+  font-size: .875rem;
+  @media screen and (max-width: 768px) {
+	  width: 100%;
+  }
+`;
+export const TaskTime = styled.div`
+	display: flex;
+  font-style: italic;
+  font-size: .75rem;
+  color: #a3bffa;
 `;
