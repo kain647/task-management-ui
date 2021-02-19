@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const Box = styled.div`
-	display: flex;
-	flex-direction: column;
-`;
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,6 +8,7 @@ export const Container = styled.div`
   background-color: #fff;
   box-sizing: border-box;
 	margin-bottom: 20px;
+	user-select: none;
 	:last-child{
 		margin-bottom: 0;
 	}
@@ -237,6 +234,9 @@ export const Tasks = styled.div`
 		.IconDel {
 			display: flex;
 		}
+		.TaskTitle {
+      color: #2d3748;
+		}
 	}
 `;
 export const TaskDetail = styled.div`
@@ -247,6 +247,7 @@ export const TaskTitle = styled.div`
 	display: flex;
 	width: 500px;
   font-size: .875rem;
+  color: #a0aec0;
   @media screen and (max-width: 768px) {
 	  width: 100%;
   }
