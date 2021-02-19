@@ -1,5 +1,7 @@
-import React from "react";
-import { BiBell, BiBellOff, BiSearchAlt, BiCog } from "react-icons/bi";
+import React, { useState } from "react";
+import { BiBell, BiBellOff, BiSearchAlt } from "react-icons/bi";
+import { RiCloseCircleFill } from "react-icons/ri";
+import { AiOutlineUserDelete, AiOutlineCloseCircle } from "react-icons/ai";
 import userLogo from "../upload/user.jpg";
 import FredEngel from "../upload/FredEngel.jpg";
 import OliveHarris from "../upload/OliveHarris.jpg";
@@ -25,17 +27,21 @@ import {
   NewTask,
   InputContainer,
   ButtonBox,
-  TaskContainer,
+  ContactContainer,
   Photo,
   Name,
   Work,
-  TasksContainer,
+  Contacts,
   DetailUser,
-  ButtonEdit
+  ButtonEdit,
+  Tasks,
+  TaskTitle,
+  TaskTime,
+  TaskDetail
 } from "./styles";
 
 const Task = () => {
-  const tasks = [
+  const contacts = [
     {
       photoUser: FredEngel,
       nameUser: "Fred Engel",
@@ -87,6 +93,41 @@ const Task = () => {
       work: "Financial Analyst"
     }
   ];
+  const tasks = [
+    {
+      taskTitle:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
+      taskTime: "10 min ago"
+    },
+    {
+      taskTitle:
+        "Various versions have evolved over the years, sometimes by accident, sometimes on purpose.",
+      taskTime: "1 hour ago"
+    },
+    {
+      taskTitle:
+        "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.",
+      taskTime: "5 sec ago"
+    }
+  ];
+  const [search, setSearch] = useState("");
+  const [withSound, setWithSound] = useState(true);
+  const [filteredContacts, setFilteredContacts] = useState(contacts);
+
+  const filterBy = keyWord => {
+    if (keyWord == "") {
+      setFilteredContacts(contacts);
+      return false;
+    }
+    const filtered = contacts.filter(contact => {
+      return (
+        search === "" ||
+        contact.nameUser.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+    setFilteredContacts(filtered);
+  };
+
   return (
     <Container>
       <HeaderContainer>
@@ -95,9 +136,8 @@ const Task = () => {
             <img src={userLogo} />
             <UserName>Aron Skoglund</UserName>
           </User>
-          <IconBox>
-            <BiBell className="on" />
-            <BiBellOff className="off" />
+          <IconBox onClick={() => setWithSound(!withSound)}>
+            {withSound ? <BiBell active /> : <BiBellOff />}
           </IconBox>
         </UserContainer>
         <ContactList>Contact List</ContactList>
@@ -110,24 +150,65 @@ const Task = () => {
             <NewTask>New Task</NewTask>
           </ButtonBox>
           <InputContainer>
-            <input placeholder="Search" type="text" />
+            <input
+              type="text"
+              placeholder="Search..."
+              value={search}
+              onChange={e => {
+                const { value } = e.target;
+                setSearch(value);
+                filterBy(value);
+              }}
+            />
             <BiSearchAlt />
+            {search !== "" && (
+              <RiCloseCircleFill
+                className="Close"
+                onClick={() => {
+                  setSearch("");
+                  filterBy("");
+                }}
+              />
+            )}
           </InputContainer>
         </ButtonContainer>
       </HeaderContainer>
-      <TaskContainer>
-        {tasks.map(taskBox => {
-          return <TaskBox {...taskBox} />;
-        })}
-      </TaskContainer>
+      <ContactContainer>
+        <ContactListItems list={filteredContacts} />
+        {tasks
+          .filter(tasks => {
+            return (
+              search === "" ||
+              tasks.taskTitle.toLowerCase().includes(search.toLowerCase())
+            );
+          })
+          .map(tasksBox => {
+            return <TasksBox {...tasksBox} />;
+          })}
+      </ContactContainer>
     </Container>
   );
 };
 
-const TaskBox = props => {
+const TasksBox = props => {
+  const { taskTitle, taskTime } = props;
+  return (
+    <Tasks>
+      <TaskDetail>
+        <TaskTitle>{taskTitle}</TaskTitle>
+        <TaskTime>{taskTime}</TaskTime>
+      </TaskDetail>
+      <ButtonEdit className="IconDel">
+        <AiOutlineCloseCircle />
+      </ButtonEdit>
+    </Tasks>
+  );
+};
+
+const ContactBox = React.memo(props => {
   const { photoUser, nameUser, work } = props;
   return (
-    <TasksContainer>
+    <Contacts>
       <Photo>
         <img src={photoUser} />
       </Photo>
@@ -135,12 +216,25 @@ const TaskBox = props => {
         <Name>{nameUser}</Name>
         <Work className="Work">{work}</Work>
       </DetailUser>
-      <ButtonEdit>
-        <BiCog />
-        Edit
+      <ButtonEdit className="IconDel">
+        <AiOutlineUserDelete />
       </ButtonEdit>
-    </TasksContainer>
+    </Contacts>
   );
-};
+});
+
+const ContactListItems = React.memo(props => {
+  const { list } = props;
+  return list.map(item => {
+    return (
+      <ContactBox
+        key={item.nameUser}
+        photoUser={item.photoUser}
+        nameUser={item.nameUser}
+        work={item.work}
+      />
+    );
+  });
+});
 
 export default Task;
