@@ -25,7 +25,7 @@ export const HeaderContainer = styled.div`
   height: max-content;
   padding: 32px;
   background-color: #fff;
-  z-index: 1;
+  z-index: 0;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -257,4 +257,34 @@ export const TaskTime = styled.div`
   font-style: italic;
   font-size: .75rem;
   color: #a3bffa;
+`;
+export const ModalBox = styled.div`
+	display: flex;
+`;
+export const TitleModal = styled.div`
+	display: flex;
+	font-size: 24px;
+`;
+export const TitleModalContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	svg {
+		cursor: pointer;
+	}
+`;
+export const DescriptionContainer = styled.div`
+	display: flex;
+	margin-bottom: 10px;
+`;
+export const FormContainer = styled.div`
+	display: flex;
+	input {
+    color: #718096;
+    border: 1px solid #cbd5e0;
+    padding: 10px;
+    border-radius: 5px;
+		margin-right: 10px;
+	}
 `;
