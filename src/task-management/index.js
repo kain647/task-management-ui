@@ -137,7 +137,7 @@ const Task = () => {
             <UserName>Aron Skoglund</UserName>
           </User>
           <IconBox onClick={() => setWithSound(!withSound)}>
-            {withSound ? <BiBell active /> : <BiBellOff />}
+            {withSound ? <BiBell /> : <BiBellOff />}
           </IconBox>
         </UserContainer>
         <ContactList>Contact List</ContactList>
@@ -190,12 +190,12 @@ const Task = () => {
   );
 };
 
-const TasksBox = props => {
+const TasksBox = React.memo(props => {
   const { taskTitle, taskTime } = props;
   return (
     <Tasks>
       <TaskDetail>
-        <TaskTitle>{taskTitle}</TaskTitle>
+        <TaskTitle className="TaskTitle">{taskTitle}</TaskTitle>
         <TaskTime>{taskTime}</TaskTime>
       </TaskDetail>
       <ButtonEdit className="IconDel">
@@ -203,7 +203,7 @@ const TasksBox = props => {
       </ButtonEdit>
     </Tasks>
   );
-};
+});
 
 const ContactBox = React.memo(props => {
   const { photoUser, nameUser, work } = props;
