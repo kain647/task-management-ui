@@ -24,7 +24,6 @@ import {
   ButtonContainer,
   IconBox,
   NewContact,
-  NewTask,
   InputContainer,
   ButtonBox,
   ContactContainer,
@@ -39,6 +38,7 @@ import {
   TaskTime,
   TaskDetail
 } from "./styles";
+import ModalExample from "./modal";
 
 const Task = () => {
   const contacts = [
@@ -112,19 +112,24 @@ const Task = () => {
   ];
   const [search, setSearch] = useState("");
   const [withSound, setWithSound] = useState(true);
-  const [filteredContacts, setFilteredContacts] = useState(contacts);
+  const [filteredContacts, setFilteredContacts] = useState([...contacts]);
 
   const filterBy = keyWord => {
+    //console.log(keyWord)
     if (keyWord == "") {
       setFilteredContacts(contacts);
       return false;
     }
+    //console.log(contacts)
     const filtered = contacts.filter(contact => {
-      return (
-        search === "" ||
-        contact.nameUser.toLowerCase().includes(search.toLowerCase())
-      );
+      //console.log(contact.nameUser, keyWord)
+      const result = contact.nameUser
+        .toLowerCase()
+        .includes(keyWord.toLowerCase());
+      //console.log(result)
+      return result;
     });
+    //console.log(filtered)
     setFilteredContacts(filtered);
   };
 
@@ -147,7 +152,7 @@ const Task = () => {
         <ButtonContainer>
           <ButtonBox>
             <NewContact>New Contact</NewContact>
-            <NewTask>New Task</NewTask>
+            <ModalExample/>
           </ButtonBox>
           <InputContainer>
             <input
@@ -156,6 +161,7 @@ const Task = () => {
               value={search}
               onChange={e => {
                 const { value } = e.target;
+                //console.log(value)
                 setSearch(value);
                 filterBy(value);
               }}
