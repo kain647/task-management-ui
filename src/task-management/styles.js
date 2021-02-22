@@ -7,11 +7,11 @@ export const Container = styled.div`
   height: 750px;
   background-color: #fff;
   box-sizing: border-box;
-	margin-bottom: 20px;
-	user-select: none;
-	:last-child{
-		margin-bottom: 0;
-	}
+  margin-bottom: 20px;
+  user-select: none;
+  :last-child {
+    margin-bottom: 0;
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;
@@ -104,8 +104,21 @@ export const NewContact = styled.button`
   border: none;
   padding: 10px;
   border-radius: 5px;
-  margin-right: 15px;
+	margin-right: 15px;
   cursor: pointer;
+	font-size: 14px;
+`;
+export const NewContactTask = styled.div`
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #a0aec0;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+	font-size: 14px;
 `;
 export const NewTask = styled.button`
   display: flex;
@@ -151,7 +164,7 @@ export const InputContainer = styled.div`
 `;
 export const ContactContainer = styled.div`
   display: flex;
-	width: 100%;
+  width: 100%;
   flex-direction: column;
   box-sizing: border-box;
   overflow-y: auto;
@@ -173,9 +186,9 @@ export const Contacts = styled.div`
     .Work {
       color: #2d3748;
     }
-	  .IconDel {
-		  display: flex;
-	  }
+    .IconDel {
+      display: flex;
+    }
   }
 `;
 export const Photo = styled.div`
@@ -222,69 +235,127 @@ export const ButtonEdit = styled.button`
 `;
 export const Tasks = styled.div`
   display: flex;
-	justify-content: space-between;
-	align-items: center;
+  justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
   padding: 20px 30px;
   background-color: #f7fafc;
   border-bottom: 1px solid #e2e8f0;
   cursor: pointer;
-	:hover {
+  :hover {
     background-color: #d9d9d9;
-		.IconDel {
-			display: flex;
-		}
-		.TaskTitle {
+    .IconDel {
+      display: flex;
+    }
+    .TaskTitle {
       color: #2d3748;
-		}
-	}
+    }
+  }
 `;
 export const TaskDetail = styled.div`
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 export const TaskTitle = styled.div`
-	display: flex;
-	width: 500px;
-  font-size: .875rem;
+  display: flex;
+  width: 500px;
+  font-size: 0.875rem;
   color: #a0aec0;
   @media screen and (max-width: 768px) {
-	  width: 100%;
+    width: 100%;
   }
 `;
 export const TaskTime = styled.div`
-	display: flex;
+  display: flex;
   font-style: italic;
-  font-size: .75rem;
+  font-size: 0.75rem;
   color: #a3bffa;
 `;
 export const ModalBox = styled.div`
-	display: flex;
+  display: flex;
 `;
 export const TitleModal = styled.div`
-	display: flex;
-	font-size: 24px;
+  display: flex;
+  font-size: 24px;
 `;
 export const TitleModalContainer = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 10px;
-	svg {
-		cursor: pointer;
-	}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  svg {
+    cursor: pointer;
+  }
 `;
 export const DescriptionContainer = styled.div`
-	display: flex;
-	margin-bottom: 10px;
+  display: flex;
+  margin-bottom: 10px;
 `;
 export const FormContainer = styled.div`
-	display: flex;
-	input {
+  display: flex;
+	box-sizing: border-box;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+  input {
+	  box-sizing: border-box;
+	  width: 300px;
     color: #718096;
     border: 1px solid #cbd5e0;
     padding: 10px;
     border-radius: 5px;
-		margin-right: 10px;
+	  margin-bottom: 10px;
+  }
+`;
+export const FormContainerTask = styled.div`
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  input {
+    box-sizing: border-box;
+    width: auto;
+    color: #718096;
+    border: 1px solid #cbd5e0;
+    padding: 10px;
+    border-radius: 5px;
+	  margin-right: 15px;
+  }
+`;
+export const UploadContainer = styled.div`
+	display: flex;
+  width: 100%;
+	align-items: center;
+	position: relative;
+	margin-bottom: 10px;
+	#imagePreview {
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+		margin-right: 20px;
+	}
+  #imageUpload {
+		display: none;
+	  opacity: 0;
+  }
+	label {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		box-sizing: border-box;
+    color: #fff;
+    background-color: #a0aec0;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+		cursor: pointer;
+		font-size: 14px;
 	}
 `;
