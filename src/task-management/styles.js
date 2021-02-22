@@ -331,7 +331,7 @@ export const UploadContainer = styled.div`
 	position: relative;
 	margin-bottom: 10px;
 	#imagePreview {
-    --size: 50px;
+    --size: 40px;
     width: var(--size);
     height: var(--size);
     border-radius: 5px;
@@ -346,13 +346,15 @@ export const UploadContainer = styled.div`
   }
 	label {
 		display: flex;
+		height: 40px;
+		width: auto;
 		justify-content: center;
 		text-align: center;
 		align-items: center;
 		box-sizing: border-box;
     color: #fff;
     background-color: #a0aec0;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     border: none;
 		cursor: pointer;
