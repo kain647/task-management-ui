@@ -6,8 +6,8 @@ import {
   TitleModalContainer,
   TitleModal,
   DescriptionContainer,
-  FormContainer,
-  NewContact,
+  FormContainerTask,
+  NewContactTask,
   ModalBox
 } from "./styles";
 
@@ -23,7 +23,7 @@ const customStyles = {
   }
 };
 
-function ModalExample() {
+function ModalTask() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -47,13 +47,13 @@ function ModalExample() {
           <CgCloseR onClick={closeModal} />
         </TitleModalContainer>
         <DescriptionContainer>Add description</DescriptionContainer>
-        <FormContainer>
+        <FormContainerTask>
           <input placeholder="Add comment.." />
-          <NewContact>Add task</NewContact>
-        </FormContainer>
+          <NewContactTask>Add task</NewContactTask>
+        </FormContainerTask>
       </Modal>
     </ModalBox>
   );
 }
 
-export default ModalExample;
+export default ModalTask;
