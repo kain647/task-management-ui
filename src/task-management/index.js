@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ModalTask from "./modalTask";
+import ModalContact from "./modalContact";
 import { BiBell, BiBellOff, BiSearchAlt } from "react-icons/bi";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { AiOutlineUserDelete, AiOutlineCloseCircle } from "react-icons/ai";
@@ -23,7 +25,6 @@ import {
   SubtitleContactList,
   ButtonContainer,
   IconBox,
-  NewContact,
   InputContainer,
   ButtonBox,
   ContactContainer,
@@ -38,7 +39,6 @@ import {
   TaskTime,
   TaskDetail
 } from "./styles";
-import ModalExample from "./modal";
 
 const Task = () => {
   const contacts = [
@@ -151,8 +151,8 @@ const Task = () => {
         </SubtitleContactList>
         <ButtonContainer>
           <ButtonBox>
-            <NewContact>New Contact</NewContact>
-            <ModalExample/>
+            <ModalContact />
+            <ModalTask />
           </ButtonBox>
           <InputContainer>
             <input
