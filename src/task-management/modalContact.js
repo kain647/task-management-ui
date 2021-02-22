@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import noPhoto from "../upload/No_image.png"
+import noPhoto from "../upload/add-camera-icon.png"
 import { CgCloseR } from "react-icons/cg";
 import {
   TitleModalContainer,
@@ -53,7 +53,7 @@ function ModalContact() {
           <UploadContainer>
 	          <img src={noPhoto} id="imagePreview" />
             <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
-            <label for="imageUpload">Upload Photo</label>
+            <label for="imageUpload">Add photo</label>
           </UploadContainer>
           <input placeholder="Name" />
           <input placeholder="Surname" />
