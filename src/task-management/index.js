@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactTimeAgo from "react-time-ago";
 import ModalTask from "./modalTask";
 import ModalContact from "./modalContact";
 import { BiBell, BiBellOff, BiSearchAlt } from "react-icons/bi";
@@ -6,15 +7,6 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { AiOutlineUserDelete, AiOutlineCloseCircle } from "react-icons/ai";
 import userLogo from "../upload/user.jpg";
 import FredEngel from "../upload/FredEngel.jpg";
-import OliveHarris from "../upload/OliveHarris.jpg";
-import JillKnight from "../upload/JillKnight.jpg";
-import ElliotBouchard from "../upload/ElliotBouchard.jpg";
-import MelvinMorgan from "../upload/MelvinMorgan.jpg";
-import ReinaldVanMechelen from "../upload/ReinaldVanMechelen.jpg";
-import LeonCrawford from "../upload/LeonCrawford.jpg";
-import AlexeyBunas from "../upload/AlexeyBunas.jpg";
-import AndreyTolegenov from "../upload/AndreyTolegenov.jpg";
-import ScarlettReid from "../upload/ScarlettReid.jpg";
 import {
   Container,
   HeaderContainer,
@@ -40,96 +32,85 @@ import {
   TaskDetail
 } from "./styles";
 
-const Task = () => {
-  const contacts = [
+const Task = props => {
+  const initCommunications = [
     {
       photoUser: FredEngel,
       nameUser: "Fred Engel",
       work: "Management Consultant"
-    },
-    {
-      photoUser: OliveHarris,
-      nameUser: "Olive Harris",
-      work: "Business Manager"
-    },
-    {
-      photoUser: JillKnight,
-      nameUser: "Jill Knight",
-      work: "Product Manager"
-    },
-    {
-      photoUser: AlexeyBunas,
-      nameUser: "Alexey Bunas",
-      work: "Bus Driver"
-    },
-    {
-      photoUser: ElliotBouchard,
-      nameUser: "Elliot Bouchard",
-      work: "Financial Analyst"
-    },
-    {
-      photoUser: MelvinMorgan,
-      nameUser: "Melvin Morgan",
-      work: "Financial Analyst"
-    },
-    {
-      photoUser: ReinaldVanMechelen,
-      nameUser: "Reinald Van Mechelen",
-      work: "Management Consultant"
-    },
-    {
-      photoUser: LeonCrawford,
-      nameUser: "Leon Crawford",
-      work: "Business Manager"
-    },
-    {
-      photoUser: AndreyTolegenov,
-      nameUser: "Andrey Tolegenov",
-      work: "Miner Manager"
-    },
-    {
-      photoUser: ScarlettReid,
-      nameUser: "Scarlett Reid",
-      work: "Financial Analyst"
     }
   ];
-  const tasks = [
+
+  const initTasks = [
     {
+      id: "task1",
       taskTitle:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      taskTime: "10 min ago"
-    },
-    {
-      taskTitle:
-        "Various versions have evolved over the years, sometimes by accident, sometimes on purpose.",
-      taskTime: "1 hour ago"
-    },
-    {
-      taskTitle:
-        "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.",
-      taskTime: "5 sec ago"
+      taskTime: 0
     }
   ];
+
   const [search, setSearch] = useState("");
+
   const [withSound, setWithSound] = useState(true);
-  const [filteredContacts, setFilteredContacts] = useState([...contacts]);
+
+  const [filteredContacts, setFilteredContacts] = useState([
+    ...initCommunications
+  ]);
+
+  const [tasks, setTasks] = useState(initTasks);
+
+  const [communications, setCommunications] = useState(initCommunications);
+
+  useEffect(() => {
+    filterBy(search);
+  }, [communications]);
+
+  const removeTask = id => {
+    const newList = tasks.filter(task => task.id !== id);
+    setTasks(newList);
+  };
+
+  const removeContact = nameUser => {
+    const newContact = communications.filter(
+      communications => communications.nameUser !== nameUser
+    );
+    setCommunications(newContact);
+  };
+
+  const addCommunication = (name, profession) => {
+    const newCommunication = {
+      nameUser: name,
+      work: profession
+    };
+    const newContacts = [...communications, newCommunication];
+    setCommunications(newContacts);
+  };
+
+  const addTask = title => {
+    const timeStamp = new Date().getTime();
+    const id = timeStamp;
+
+    const newTask = {
+      id,
+      taskTitle: title,
+      taskTime: timeStamp
+    };
+    const newList = [...tasks, newTask];
+    setTasks(newList);
+  };
 
   const filterBy = keyWord => {
-    //console.log(keyWord)
     if (keyWord == "") {
-      setFilteredContacts(contacts);
+      setFilteredContacts(communications);
       return false;
     }
-    //console.log(contacts)
-    const filtered = contacts.filter(contact => {
-      //console.log(contact.nameUser, keyWord)
+    const filtered = communications.filter(contact => {
       const result = contact.nameUser
         .toLowerCase()
         .includes(keyWord.toLowerCase());
-      //console.log(result)
       return result;
     });
-    //console.log(filtered)
     setFilteredContacts(filtered);
   };
 
@@ -151,8 +132,8 @@ const Task = () => {
         </SubtitleContactList>
         <ButtonContainer>
           <ButtonBox>
-            <ModalContact />
-            <ModalTask />
+            <ModalContact addCommunication={addCommunication} />
+            <ModalTask addTask={addTask} />
           </ButtonBox>
           <InputContainer>
             <input
@@ -161,7 +142,6 @@ const Task = () => {
               value={search}
               onChange={e => {
                 const { value } = e.target;
-                //console.log(value)
                 setSearch(value);
                 filterBy(value);
               }}
@@ -180,7 +160,7 @@ const Task = () => {
         </ButtonContainer>
       </HeaderContainer>
       <ContactContainer>
-        <ContactListItems list={filteredContacts} />
+        <ContactListItems list={filteredContacts} remove={removeContact}/>
         {tasks
           .filter(tasks => {
             return (
@@ -189,7 +169,7 @@ const Task = () => {
             );
           })
           .map(tasksBox => {
-            return <TasksBox {...tasksBox} />;
+            return <TasksBox remove={removeTask} {...tasksBox} />;
           })}
       </ContactContainer>
     </Container>
@@ -197,14 +177,16 @@ const Task = () => {
 };
 
 const TasksBox = React.memo(props => {
-  const { taskTitle, taskTime } = props;
+  const { taskTitle, taskTime, remove, id } = props;
   return (
     <Tasks>
       <TaskDetail>
         <TaskTitle className="TaskTitle">{taskTitle}</TaskTitle>
-        <TaskTime>{taskTime}</TaskTime>
+        <TaskTime>
+          <ReactTimeAgo date={taskTime} locale="en-US" />
+        </TaskTime>
       </TaskDetail>
-      <ButtonEdit className="IconDel">
+      <ButtonEdit className="IconDel" onClick={() => remove(id)}>
         <AiOutlineCloseCircle />
       </ButtonEdit>
     </Tasks>
@@ -212,7 +194,7 @@ const TasksBox = React.memo(props => {
 });
 
 const ContactBox = React.memo(props => {
-  const { photoUser, nameUser, work } = props;
+  const { photoUser, nameUser, work, remove } = props;
   return (
     <Contacts>
       <Photo>
@@ -222,7 +204,7 @@ const ContactBox = React.memo(props => {
         <Name>{nameUser}</Name>
         <Work className="Work">{work}</Work>
       </DetailUser>
-      <ButtonEdit className="IconDel">
+      <ButtonEdit className="IconDel" onClick={() => remove(nameUser)}>
         <AiOutlineUserDelete />
       </ButtonEdit>
     </Contacts>
@@ -230,10 +212,11 @@ const ContactBox = React.memo(props => {
 });
 
 const ContactListItems = React.memo(props => {
-  const { list } = props;
+  const { list, remove } = props;
   return list.map(item => {
     return (
       <ContactBox
+        remove={remove}
         key={item.nameUser}
         photoUser={item.photoUser}
         nameUser={item.nameUser}
