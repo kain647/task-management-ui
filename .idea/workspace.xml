@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ab06ae0-b328-4400-9a1b-ca04f5f445d8" name="Default Changelist" comment="" />
+    <list default="true" id="8ab06ae0-b328-4400-9a1b-ca04f5f445d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task-management/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task-management/modalContact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/modalContact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task-management/modalTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/modalTask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task-management/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/AlexeyBunas.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/AndreyTolegenov.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/ElliotBouchard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/JillKnight.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/LeonCrawford.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/MelvinMorgan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/No_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/OliveHarris.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/ReinaldVanMechelen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/upload/ScarlettReid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1objPwBcmognNqU6LFLyny0m6xV" />
   <component name="ProjectViewState">
@@ -16,6 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -23,6 +46,7 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\aleks\AppData\Roaming\npm\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -56,7 +80,15 @@
       <workItem from="1613582998313" duration="1320000" />
       <workItem from="1613645149245" duration="18480000" />
       <workItem from="1613732852377" duration="14218000" />
-      <workItem from="1613851666299" duration="13613000" />
+      <workItem from="1613851666299" duration="14824000" />
+      <workItem from="1614081942635" duration="14000" />
+      <workItem from="1614082078160" duration="2588000" />
+      <workItem from="1614165800120" duration="1204000" />
+      <workItem from="1614254955549" duration="6000" />
+      <workItem from="1614337809407" duration="816000" />
+      <workItem from="1614684882349" duration="12620000" />
+      <workItem from="1614707089570" duration="638000" />
+      <workItem from="1614759749564" duration="6176000" />
     </task>
     <servers />
   </component>
