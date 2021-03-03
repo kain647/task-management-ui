@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
-import noPhoto from "../upload/add-camera-icon.png"
+import noPhoto from "../upload/add-camera-icon.png";
 import { CgCloseR } from "react-icons/cg";
 import {
   TitleModalContainer,
@@ -9,7 +9,7 @@ import {
   FormContainer,
   NewContact,
   ModalBox,
-	UploadContainer
+  UploadContainer
 } from "./styles";
 
 const customStyles = {
@@ -25,15 +25,19 @@ const customStyles = {
   }
 };
 
-function ModalContact() {
+const ModalContact = (props) => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
-
-  function closeModal() {
+  };
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
+
+  const [name, setName] = useState("");
+  const [profession, setProfession] = useState("");
+  const changeName = e => setName(e.target.value);
+  const changeWork = e => setProfession(e.target.value);
 
   return (
     <ModalBox>
@@ -51,17 +55,26 @@ function ModalContact() {
         <DescriptionContainer>Add description</DescriptionContainer>
         <FormContainer>
           <UploadContainer>
-	          <img src={noPhoto} id="imagePreview" />
+            <img src={noPhoto} id="imagePreview" />
             <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
             <label for="imageUpload">Add photo</label>
           </UploadContainer>
-          <input placeholder="Name" />
-          <input placeholder="Surname" />
-          <NewContact>Add contact</NewContact>
+          <input placeholder="Name" onChange={changeName} />
+          <input placeholder="Profession" onChange={changeWork} />
+          <NewContact
+            onClick={() => {
+              props.addCommunication(name, profession);
+              setIsOpen(false);
+              setName("");
+              setProfession("");
+            }}
+          >
+            Add contact
+          </NewContact>
         </FormContainer>
       </Modal>
     </ModalBox>
   );
-}
+};
 
 export default ModalContact;
