@@ -3,23 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8ab06ae0-b328-4400-9a1b-ca04f5f445d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/task-management/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/task-management/modalContact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/modalContact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/task-management/modalTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/modalTask.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/task-management/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/task-management/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/AlexeyBunas.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/AndreyTolegenov.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/ElliotBouchard.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/JillKnight.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/LeonCrawford.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/MelvinMorgan.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/No_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/OliveHarris.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/ReinaldVanMechelen.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/upload/ScarlettReid.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +72,7 @@
       <workItem from="1614337809407" duration="816000" />
       <workItem from="1614684882349" duration="12620000" />
       <workItem from="1614707089570" duration="638000" />
-      <workItem from="1614759749564" duration="6176000" />
+      <workItem from="1614759749564" duration="8554000" />
     </task>
     <servers />
   </component>
