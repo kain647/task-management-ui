@@ -236,8 +236,9 @@ export const ButtonEdit = styled.button`
 export const Tasks = styled.div`
   display: flex;
   justify-content: space-between;
-	word-break: break-all;
   align-items: center;
+  white-space: break-spaces;
+  word-break: break-word;
   box-sizing: border-box;
   padding: 20px 30px;
   background-color: #f7fafc;
