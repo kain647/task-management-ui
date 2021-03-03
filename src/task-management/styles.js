@@ -236,6 +236,7 @@ export const ButtonEdit = styled.button`
 export const Tasks = styled.div`
   display: flex;
   justify-content: space-between;
+	word-break: break-all;
   align-items: center;
   box-sizing: border-box;
   padding: 20px 30px;
@@ -261,6 +262,7 @@ export const TaskTitle = styled.div`
   width: 500px;
   font-size: 0.875rem;
   color: #a0aec0;
+	margin-bottom: 10px;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -342,7 +344,6 @@ export const UploadContainer = styled.div`
 	}
   #imageUpload {
 		display: none;
-	  opacity: 0;
   }
 	label {
 		display: flex;
