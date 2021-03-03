@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import { CgCloseR } from "react-icons/cg";
 import {
@@ -23,15 +23,20 @@ const customStyles = {
   }
 };
 
-function ModalTask() {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
+const ModalTask = props => {
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-  function closeModal() {
+  const [title, setTitle] = useState("");
+
+  const changeTitle = e => setTitle(e.target.value);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
   return (
     <ModalBox>
@@ -48,12 +53,20 @@ function ModalTask() {
         </TitleModalContainer>
         <DescriptionContainer>Add description</DescriptionContainer>
         <FormContainerTask>
-          <input placeholder="Add comment.." />
-          <NewContactTask>Add task</NewContactTask>
+          <input onChange={changeTitle} placeholder="Add comment.." />
+          <NewContactTask
+            onClick={() => {
+              props.addTask(title);
+              setIsOpen(false);
+              setTitle("");
+            }}
+          >
+            Add task
+          </NewContactTask>
         </FormContainerTask>
       </Modal>
     </ModalBox>
   );
-}
+};
 
 export default ModalTask;
